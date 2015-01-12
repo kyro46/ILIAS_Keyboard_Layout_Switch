@@ -3,14 +3,13 @@
 include_once("./Services/COPage/classes/class.ilPageComponentPluginGUI.php");
  
 /**
- * Example user interface plugin
+ * Keyboard Layout Switcher ILIAS_Keyboard_Layout_Switch
  *
- * 
- * @author Alex Killing <alex.killing@gmx.de>
+ * @author Christoph Jobst <christoph.jobst@llz.uni-halle.de>
  * @version $Id$
- * @ilCtrl_isCalledBy ilPCExamplePluginGUI: ilPCPluggedGUI
+ * @ilCtrl_isCalledBy ilKeyboardLayoutSwitcherGUI: ilPCPluggedGUI
  */
-class ilPCExamplePluginGUI extends ilPageComponentPluginGUI
+class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 {
 	/**
 	 * Execute command

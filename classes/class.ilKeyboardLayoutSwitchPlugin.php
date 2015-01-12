@@ -3,13 +3,13 @@
 include_once("./Services/COPage/classes/class.ilPageComponentPlugin.php");
  
 /**
- * Example user interface plugin
+ * Keyboard Layout Switcher ILIAS_Keyboard_Layout_Switch
  *
- * @author Alex Killing <alex.killing@gmx.de>
+ * @author Christoph Jobst <christoph.jobst@llz.uni-halle.de>
  * @version $Id$
  *
  */
-class ilPCExamplePlugin extends ilPageComponentPlugin
+class ilKeyboardLayoutSwitchPlugin extends ilPageComponentPlugin
 {
 	/**
 	 * Get plugin name 
@@ -18,7 +18,7 @@ class ilPCExamplePlugin extends ilPageComponentPlugin
 	 */
 	function getPluginName()
 	{
-		return "PCExample";
+		return "KeyboardLayoutSwitch";
 	}
 	
 	
@@ -29,7 +29,7 @@ class ilPCExamplePlugin extends ilPageComponentPlugin
 	 */
 	function isValidParentType($a_parent_type)
 	{
-		if (in_array($a_parent_type, array("lm", "wpg")))
+		if (in_array($a_parent_type, array("qpl", "qht")))
 		{
 			return true;
 		}

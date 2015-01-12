@@ -1,7 +1,7 @@
 <?php
 
 // alphanumerical ID of the plugin; never change this
-$id = "pcexample";
+$id = "keyboardlayoutswtitch";
 
 // code version; must be changed for all code changes
 $version = "0.0.3";
@@ -12,7 +12,7 @@ $ilias_min_version = "4.4.0";
 $ilias_max_version = "4.4.999";
 
 // optional, but useful: Add one or more responsible persons and a contact email
-$responsible = "Alexander Killing";
-$responsible_mail = "alex.killing@gmx.de";
+$responsible = "Christoph Jobst";
+$responsible_mail = "christoph.jobst@llz.uni-halle.de";
 
 ?>

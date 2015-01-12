@@ -1,4 +1,5 @@
-ILIAS_Limited_Media_Plugin
+ILIAS_Keyboard_Layout_Switch
+
 ==========================
 
-PageComponentPlugin - Restict number of palys for media in tests
+PageComponentPlugin - Shows a predefinied keyboard layout (eg. russian) and switches the keyboardinput accordingly
