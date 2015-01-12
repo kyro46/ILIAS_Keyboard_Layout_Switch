@@ -1,7 +1,9 @@
 <?php
 
 // alphanumerical ID of the plugin; never change this
-$id = "keyboardlayoutswtitch";
+//$id = "keyboardlayoutswtitch";
+$id = "keylayswi";
+
 
 // code version; must be changed for all code changes
 $version = "0.0.3";

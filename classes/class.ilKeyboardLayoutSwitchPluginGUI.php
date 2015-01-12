@@ -7,7 +7,7 @@ include_once("./Services/COPage/classes/class.ilPageComponentPluginGUI.php");
  *
  * @author Christoph Jobst <christoph.jobst@llz.uni-halle.de>
  * @version $Id$
- * @ilCtrl_isCalledBy ilKeyboardLayoutSwitcherGUI: ilPCPluggedGUI
+ * @ilCtrl_isCalledBy ilKeyboardLayoutSwitchPluginGUI: ilPCPluggedGUI
  */
 class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 {
