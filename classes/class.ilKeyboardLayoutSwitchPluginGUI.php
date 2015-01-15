@@ -3,7 +3,7 @@
 include_once("./Services/COPage/classes/class.ilPageComponentPluginGUI.php");
  
 /**
- * Keyboard Layout Switcher ILIAS_Keyboard_Layout_Switch
+ * Keyboard Layout Switch
  *
  * @author Christoph Jobst <christoph.jobst@llz.uni-halle.de>
  * @version $Id$
@@ -28,7 +28,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 			default:
 				// perform valid commands
 				$cmd = $ilCtrl->getCmd();
-				if (in_array($cmd, array("create", "save", "edit", "edit2", "update", "cancel")))
+				if (in_array($cmd, array("create", "save", "edit", "update", "cancel")))
 				{
 					$this->$cmd();
 				}
@@ -52,7 +52,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 	}
 	
 	/**
-	 * Save new pc example element
+	 * Save new keyboard layout switch element
 	 */
 	public function create()
 	{
@@ -62,8 +62,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 		if ($form->checkInput())
 		{
 			$properties = array(
-				"value_1" => $form->getInput("val1"),
-				"value_2" => $form->getInput("val2")
+				"keyboardLayoutId" => $form->getInput("keylay")	
 				);
 			if ($this->createElement($properties))
 			{
@@ -106,8 +105,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 		if ($form->checkInput())
 		{
 			$properties = array(
-				"value_1" => $form->getInput("val1"),
-				"value_2" => $form->getInput("val2")
+				"keyboardLayoutId" => $form->getInput("keylay")
 				);
 			if ($this->updateElement($properties))
 			{
@@ -133,25 +131,22 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 
 		include_once("Services/Form/classes/class.ilPropertyFormGUI.php");
 		$form = new ilPropertyFormGUI();
-
-		// value one 
-		$v1 = new ilTextInputGUI($this->getPlugin()->txt("value_1"), "val1");
-		$v1->setMaxLength(40);
-		$v1->setSize(40);
-		$v1->setRequired(true);
-		$form->addItem($v1);
-
-		// value two 
-		$v2 = new ilTextInputGUI($this->getPlugin()->txt("value_2"), "val2");
-		$v2->setMaxLength(40);
-		$v2->setSize(40);
-		$form->addItem($v2);
+		$pl = $this->getPlugin();
+		
+		// keyboard selection
+		$klId = new ilRadioGroupInputGUI($pl->txt("select_keyboard"), "keylay");
+		$klId->addOption(new ilRadioOption($pl->txt("intl_ru_standard"), 0, ''));
+		$klId->addOption(new ilRadioOption($pl->txt("ialt_ru"), 1, ''));
+		$klId->addOption(new ilRadioOption($pl->txt("ialt_fr"), 2, ''));
+		$klId->addOption(new ilRadioOption($pl->txt("ialt_es"), 3, ''));
+		$klId->setRequired(true);
+		$form->addItem($klId);		
 		
 		if (!$a_create)
 		{
 			$prop = $this->getProperties();
-			$v1->setValue($prop["value_1"]);
-			$v2->setValue($prop["value_2"]);
+
+			$klId->setValue($prop["keyboardLayoutId"]);
 		}
 
 		// save and cancel commands
@@ -191,19 +186,28 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 	{
 		$pl = $this->getPlugin();
 		$tpl = $pl->getTemplate("tpl.content.html");
-//var_dump($a_properties);
-		foreach ($a_properties as $name => $value)
-		{
-			$tpl->setCurrentBlock("prop");
-			$tpl->setVariable("TXT_PROP", $pl->txt("property"));
-			$tpl->setVariable("PROP_NAME", $name);
-			$tpl->setVariable("PROP_VAL", $value);
-			$tpl->parseCurrentBlock();
+		
+		$tpl->setVariable("SYSTEM_LANG", $pl->txt("system_lang"));
+				
+		switch ($a_properties[keyboardLayoutId]) {
+			case "0":
+				$tpl->setVariable("KEYBOARDLAYOUT", "intl_ru_standard");
+				$tpl->setVariable("LANGUAGE", $pl->txt("intl_ru_standard"));
+				break;
+			case "1":
+				$tpl->setVariable("KEYBOARDLAYOUT", "ialt_ru");
+				$tpl->setVariable("LANGUAGE", $pl->txt("ialt_ru"));
+				
+				break;
+			case "2":
+				$tpl->setVariable("KEYBOARDLAYOUT", "ialt_fr");
+				$tpl->setVariable("LANGUAGE", $pl->txt("ialt_fr"));
+				break;
+			case "3":
+				$tpl->setVariable("KEYBOARDLAYOUT", "ialt_es");
+				$tpl->setVariable("LANGUAGE", $pl->txt("ialt_es"));
+				break;				
 		}
-		$tpl->setVariable("TXT_VERSION", $pl->txt("content_plugin_version"));
-		$tpl->setVariable("TXT_MODE", $pl->txt("mode"));
-		$tpl->setVariable("VERSION", $a_plugin_version);
-		$tpl->setVariable("MODE", $a_mode);
 		
 		return $tpl->get();
 	}
@@ -223,25 +227,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 		$ilTabs->addTab("edit", $pl->txt("settings_1"),
 			$ilCtrl->getLinkTarget($this, "edit"));
 
-		$ilTabs->addTab("edit2", $pl->txt("settings_2"),
-			$ilCtrl->getLinkTarget($this, "edit2"));
-		
 		$ilTabs->activateTab($a_active);
-	}
-
-	/**
-	 * More settings editing
-	 *
-	 * @param
-	 * @return
-	 */
-	function edit2()
-	{
-		global $tpl;
-		
-		$this->setTabs("edit2");
-		
-		ilUtil::sendInfo($this->getPlugin()->txt("more_editing"));
 	}
 
 }

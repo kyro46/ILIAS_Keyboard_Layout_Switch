@@ -1,15 +1,16 @@
 //
-// Copyright (c) 2012 Leifos GmbH, GPL2, see docs/LICENSE
+// Copyright (c) 2015 Christoph Jobst, GPL2, see docs/LICENSE
 //
 
 <!-- language file start -->
-cmd_insert#:#Insert PC Example Element
-edit_ex_el#:#Edit PC Example Element
-value_1#:#Value 1
-value_2#:#Value 2
-content_plugin_version#:#Content last edited with version
-mode#:#Mode
-property#:#Property
-settings_1#:#Settings 1
-settings_2#:#Settings 2
-more_editing#:#More Editing
+cmd_insert#:#Insert Keyboard Layout
+edit_ex_el#:#Edit Keyboard Layout
+
+system_lang#:#System Keyboard
+ialt_ru#:#Russian for ger. native speakers
+intl_ru_standard#:#Russian Keyboard
+ialt_fr#:#French Keyboard
+ialt_es#:#Spanish Keyboard
+settings_1#:#Language selection
+select_keyboard#:#Select a Keyboard
+settings_1_saved#:#Selection saved

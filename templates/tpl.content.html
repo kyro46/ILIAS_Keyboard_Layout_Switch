@@ -1,7 +1,36 @@
 <div class="ilBox">
-	{TXT_VERSION}: {VERSION}
-	<br />{TXT_MODE}: {MODE}
-<!-- BEGIN prop -->
-	<br />{TXT_PROP} "{PROP_NAME}": {PROP_VAL}
-<!-- END prop -->
+    <input type="radio" name="chooser" value="system" id="system" checked/>{SYSTEM_LANG}<br/>
+	<input type="radio" name="chooser" value="changed" id="changed" />{LANGUAGE}<br/>
+    
+ 	<script type="text/javascript" charset="utf-8">
+ 	var toggle = false;
+	$(document).ready(function(){
+		$("#system").click( function() {
+			if ($("#system:checked").val() == "system")  {
+				$("#TEXT, [name^=gap_]").retype("off");
+				toggle = false;
+			}
+		});
+	});
+	
+	$(document).ready(function(){
+		$("#changed").click( function() {
+			if (($("#changed:checked").val() == "changed") && !toggle) {
+				$("#TEXT, [name^=gap_]" ).retype("on", {'mapping_url' : 'Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/mappings/{KEYBOARDLAYOUT}.json'});
+				toggle = true;
+			}
+		});
+	});
+	
+	function iframeLoaded() {
+      	var iFrameID = document.getElementById('help');
+      	if(iFrameID) {
+            iFrameID.height = "";
+			iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      	}   
+	}
+</script>
+
+	<br/>
+    <iframe id="help" width="100%" height="0" onload="iframeLoaded()" src="Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/help/{KEYBOARDLAYOUT}.help.html"></iframe>
 </div>

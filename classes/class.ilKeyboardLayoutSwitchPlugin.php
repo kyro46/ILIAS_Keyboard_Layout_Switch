@@ -41,7 +41,7 @@ class ilKeyboardLayoutSwitchPlugin extends ilPageComponentPlugin
 	 */
 	function getJavascriptFiles()
 	{
-		return array("js/pcexp.js");
+		return array("js/jquery.fieldselection.min.js", "js/jquery.retype.min.js");
 	}
 	
 	/**
@@ -49,7 +49,7 @@ class ilKeyboardLayoutSwitchPlugin extends ilPageComponentPlugin
 	 */
 	function getCssFiles()
 	{
-		return array("css/pcexp.css");
+		return array();
 	}
 
 }
