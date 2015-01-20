@@ -4,7 +4,7 @@ ILIAS 4.4.+ KeyboardLayoutSwitch
 PageComponentPlugin - Shows a predefinied keyboard layout (eg. russian) and switches the keyboardinput accordingly
 
 * Students can select a predefined keyboard layout
-* No need to install languages locally inside the operationg system
+* No need to enable languages locally inside the operationg system
 * Easy switching between keyboards even inside special environments (e.g. SafeExamBrowser)
 
 ###Usage
