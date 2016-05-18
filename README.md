@@ -1,21 +1,25 @@
-ILIAS 4.4.+ KeyboardLayoutSwitch
+KeyboardLayoutSwitch
 ===
 
-PageComponentPlugin - Shows a predefinied keyboard layout (eg. russian) and switches the keyboardinput accordingly
+PageComponentPlugin for ILIAS 4.4, 5.0 and 5.1.
+It shows a predefinied keyboard layout (eg. russian) and switches the keyboardinput accordingly
 
 * Students can select a predefined keyboard layout
 * No need to enable languages locally inside the operationg system
 * Easy switching between keyboards even inside special environments (e.g. SafeExamBrowser)
 
 ###Usage
-Create a new Page Component for your testquestions, select the language
+Create a new Page Component for your testquestions, select the language.
 
 ###Install
-1. Copy the content under your ILIAS main directory at:
-Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch
+Install the plugin
 
-2. Open ILIAS > Administration > Plugins
-Update/Activate the Plugin
+```bash
+mkdir -p Customizing/global/plugins/Services/COPage/PageComponent  
+cd Customizing/global/plugins/Services/COPage/PageComponent
+git clone https://github.com/kyro46/KeyboardLayoutSwitch.git
+```
+and activate it in the ILIAS-Admin-GUI.
 
 ###Inserting new/custom Keyboard Layouts
 * Create a .json-file with the mapping (see existing files) inside ./mappings
