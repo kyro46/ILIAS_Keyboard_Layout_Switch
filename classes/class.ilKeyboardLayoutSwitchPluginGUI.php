@@ -188,6 +188,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 		$tpl = $pl->getTemplate("tpl.content.html");
 		
 		$tpl->setVariable("SYSTEM_LANG", $pl->txt("system_lang"));
+		$tpl->setVariable("KEYLASWI_ID", rand());
 				
 		switch ($a_properties[keyboardLayoutId]) {
 			case "0":
