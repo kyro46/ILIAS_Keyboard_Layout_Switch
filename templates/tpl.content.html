@@ -7,7 +7,7 @@
 	$(document).ready(function(){
 		$("#system").click( function() {
 			if ($("#system:checked").val() == "system")  {
-				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]").retype("off");
+				$("[name^=TEXT], [name^=gap_], [name^=TEXTSUBSET_]").retype("off");
 				toggle = false;
 			}
 		});
@@ -16,7 +16,7 @@
 	$(document).ready(function(){
 		$("#changed").click( function() {
 			if (($("#changed:checked").val() == "changed") && !toggle) {
-				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]" ).retype("on", {'mapping_url' : 'Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/mappings/{KEYBOARDLAYOUT}.json'});
+				$("[name^=TEXT], [name^=gap_], [name^=TEXTSUBSET_]" ).retype("on", {'mapping_url' : 'Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/mappings/{KEYBOARDLAYOUT}.json'});
 				toggle = true;
 			}
 		});
