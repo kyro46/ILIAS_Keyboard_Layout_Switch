@@ -1,29 +1,29 @@
 <div class="ilBox">
-    <input type="radio" name="chooser_{KEYLASWI_ID}" value="system_{KEYLASWI_ID}" id="system_{KEYLASWI_ID}" checked/>{SYSTEM_LANG}<br/>
-	<input type="radio" name="chooser_{KEYLASWI_ID}" value="changed_{KEYLASWI_ID}" id="changed_{KEYLASWI_ID}" />{LANGUAGE}<br/>
+    <input type="radio" name="chooser" value="system" id="system" checked/>{SYSTEM_LANG}<br/>
+	<input type="radio" name="chooser" value="changed" id="changed" />{LANGUAGE}<br/>
     
  	<script type="text/javascript" charset="utf-8">
- 	var toggle_{KEYLASWI_ID} = false;
+ 	var toggle = false;
 	$(document).ready(function(){
-		$("#system_{KEYLASWI_ID}").click( function() {
-			if ($("#system_{KEYLASWI_ID}:checked").val() == "system_{KEYLASWI_ID}")  {
-				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]",$(this).closest('.questionPrintview')).retype("off");
-				toggle_{KEYLASWI_ID} = false;
+		$("#system").click( function() {
+			if ($("#system:checked").val() == "system")  {
+				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]").retype("off");
+				toggle = false;
 			}
 		});
 	});
 	
 	$(document).ready(function(){
-		$("#changed_{KEYLASWI_ID}").click( function() {
-			if (($("#changed_{KEYLASWI_ID}:checked").val() == "changed_{KEYLASWI_ID}") && !toggle_{KEYLASWI_ID}) {
-				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]",$(this).closest('.questionPrintview')).retype("on", {'mapping_url' : 'Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/mappings/{KEYBOARDLAYOUT}.json'});
-				toggle_{KEYLASWI_ID} = true;
+		$("#changed").click( function() {
+			if (($("#changed:checked").val() == "changed") && !toggle) {
+				$("#TEXT, [name^=gap_], [name^=TEXTSUBSET_]" ).retype("on", {'mapping_url' : 'Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/mappings/{KEYBOARDLAYOUT}.json'});
+				toggle = true;
 			}
 		});
 	});
 	
-	function iframeLoaded_{KEYLASWI_ID}() {
-      	var iFrameID = document.getElementById('help_{KEYLASWI_ID}');
+	function iframeLoaded() {
+      	var iFrameID = document.getElementById('help');
       	if(iFrameID) {
             iFrameID.height = "";
 			iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
@@ -32,5 +32,5 @@
 </script>
 
 	<br/>
-    <iframe id="help_{KEYLASWI_ID}" width="100%" height="0" onload="iframeLoaded_{KEYLASWI_ID}()" src="Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/help/{KEYBOARDLAYOUT}.help.html"></iframe>
+    <iframe id="help" width="100%" height="0" onload="iframeLoaded()" src="Customizing/global/plugins/Services/COPage/PageComponent/KeyboardLayoutSwitch/help/{KEYBOARDLAYOUT}.help.html"></iframe>
 </div>
