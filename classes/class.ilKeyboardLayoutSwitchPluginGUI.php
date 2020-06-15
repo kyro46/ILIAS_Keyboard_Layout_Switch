@@ -190,7 +190,7 @@ class ilKeyboardLayoutSwitchPluginGUI extends ilPageComponentPluginGUI
 		$tpl->setVariable("SYSTEM_LANG", $pl->txt("system_lang"));
 		$tpl->setVariable("KEYLASWI_ID", rand());
 				
-		switch ($a_properties[keyboardLayoutId]) {
+		switch ($a_properties['keyboardLayoutId']) {
 			case "0":
 				$tpl->setVariable("KEYBOARDLAYOUT", "intl_ru_standard");
 				$tpl->setVariable("LANGUAGE", $pl->txt("intl_ru_standard"));
