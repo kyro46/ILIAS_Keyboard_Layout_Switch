@@ -1,7 +1,7 @@
 KeyboardLayoutSwitch
 ===
 
-PageComponentPlugin for ILIAS 4.4 to 5.2 and 5.4 (5.3 not tested)
+PageComponentPlugin for ILIAS 4.4 to 5.2, 5.4 and 7 (5.3 and 6 not tested)
 It shows a predefinied keyboard layout (eg. russian) and switches the keyboardinput accordingly
 
 * Students can select a predefined keyboard layout
